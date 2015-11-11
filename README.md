@@ -33,3 +33,9 @@ Presentation for MEAN Stack for Michigan Hackers.
 > cd C:\MongoDB\Server\3.0\bin
 > .\mongod
 ```
+
+The following should appear in the last line:
+
+```
+I NETWORK  [initandlisten] waiting for connections on port 27017
+```
