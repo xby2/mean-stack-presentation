@@ -26,9 +26,10 @@ Presentation for MEAN Stack for Michigan Hackers.
 ## Installing and Configuring MongoDB
 
 1.  Download and install [MongoDB](https://www.mongodb.org/downloads#production)
+  - When installing MongoDB, it is recommended you change the installation directory to 'C:\MongoDB\Server\3.0\bin'
 2.  Create the default DB directory C:\data\db if it doesn't already exist.
 3.  Verify the installation was successful by running the MongoDB server:
 ```bash
-> cd 'C:\Program Files\MongoDB\Server\3.0\bin
+> cd C:\MongoDB\Server\3.0\bin
 > .\mongod
 ```
