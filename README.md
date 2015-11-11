@@ -22,3 +22,13 @@ Presentation for MEAN Stack for Michigan Hackers.
 ```
 
 - Navigate to [localhost:3000](http://localhost:3000)
+
+## Installing and Configuring MongoDB
+
+1.  Download and install [MongoDB](https://www.mongodb.org/downloads#production)
+2.  Create the default DB directory C:\data\db if it doesn't already exist.
+3.  Verify the installation was successful by running the MongoDB server:
+```bash
+> cd 'C:\Program Files\MongoDB\Server\3.0\bin
+> .\mongod
+```
