@@ -15,10 +15,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/index.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -46,6 +49,11 @@
 					<p>
 						<small>Created by Mohammed Hussain, Jeff Sallans, Dave Farinelli</small>
 					</p>
+					<aside class="notes">
+						Get a sense of the crowd:<br/>
+							How many heard of Node.js?<br/>
+							MongoDB?<br/>
+					</aside>
 				</section>
 
 				<section>
@@ -56,10 +64,69 @@
 				</section>
 
 				<section>
-				<h2>Why MEAN Stack?</h2>
+					<h2>Why MEAN Stack?</h2>
 					<p>
 						Descriptions on why you would use the MEAN stack?
 					</p>
+				</section>
+				<section>
+					<h2>Why MEAN Stack?</h2>
+					<p>
+						Descriptions on why you would use the MEAN stack?
+					</p>
+				</section>
+				<section>
+					<h3>Node.js</h3>
+					<section>
+						<h3>What is it?</h3>
+						<p>Server-side JavaScript Environment</p>
+						<p>Competitors: </p>
+						<p class="reference">
+							<a href="https://nodejs.org/">https://nodejs.org/</a>
+						</p>
+					</section>
+					<section>
+						<h3>Why should I use it?</h3>
+						<p>Match the language on the frontend</p>
+						<p>Better concurrency for IO-bound workloads</p>
+						<p class="reference">
+							<a href="http://www.se-radio.net/tag/node-js/">http://www.se-radio.net/tag/node-js/</a>
+						</p>
+						<aside class="notes">
+							talked about this for MEAN stack<br/>
+							I/O workload - Reading/writting a file/database<br/>
+							Dive into the second part<br/>
+						</aside>
+					</section>
+					<section>
+						<h3>Node.js Concurrency Model</h3>
+						<img class="full-screen blank-background" src="img/nodeJsAsyncAdvantage.png">
+						<p class="reference">
+							<a href="http://stackoverflow.com/questions/14795145/how-the-single-threaded-non-blocking-io-model-works-in-node-jS">
+								http://stackoverflow.com/questions/14795145/how-the-single-threaded-non-blocking-io-model-works-in-node-jS
+							</a>
+						</p>
+						<aside class="notes">
+							Start with explaining a sample request<br/>
+							Highlight the single thread managing the I/O operations<br/>
+							1 and 2 took a while<br/>
+							3rd and 4th are satisfied<br/> 
+						</aside>
+					</section>
+					<section>
+						<h3>Downside</h3>
+						<p>Code Quality With Complexity - JavaScript is not as strict as other server-side languages</p>
+						<p>Callback Hell - Async callback code can be hard to read and debug</p>
+						<p class="reference">
+							<a href="http://callbackhell.com/">
+								http://callbackhell.com/
+							</a>
+						</p>
+						<aside class="notes">
+							Hard to do object oriented design in JavaScript<br/>
+							Examples coming up<br/>
+						</aside>
+					</section>
 				</section>
 
 				<section>
@@ -117,6 +184,30 @@
 				<section>
 					<h2>Code Time</h2>
 				</section>
+
+				<section>
+					<section>
+						<h3>Glup vs Grunt</h3>
+						<p>Code vs config files</p>
+						<p>Go with Gulp</p>
+						<p class="reference">
+							<a href="https://medium.com/@preslavrachev/gulp-vs-grunt-why-one-why-the-other-f5d3b398edc4">
+								https://medium.com/@preslavrachev/gulp-vs-grunt-why-one-why-the-other-f5d3b398edc4
+							</a>
+						</p>
+					</section>
+					<section>
+						<h3>NPM vs Bower</h3>
+						<p><b>NPM</b> - Resolves dependencies in a <b>nested</b> structure (used on the backend for easier setup/deploy)</p>
+						<p><b>Bower</b> - Resolves dependencies in a <b>flat</b> structure (used on the frontend to keep client code light)</p>
+						<p class="reference">
+							<a href="http://stackoverflow.com/questions/18641899/what-is-the-difference-between-bower-and-npm">
+								http://stackoverflow.com/questions/18641899/what-is-the-difference-between-bower-and-npm
+							</a>
+						</p>
+					</section>
+				</section>
+
 
 				<section>
 					<h2>Further Research</h2>

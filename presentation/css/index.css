@@ -1,0 +1,59 @@
+h3:not(.custom) {
+	color: #f93;
+}
+
+.pull-left {
+	position: absolute;
+	left: 0px;
+	width: 50%;
+}
+
+.pull-left-quarter {
+	position: absolute;
+	left: 0px;
+	width: 25%;
+}
+
+.pull-right {
+	position: absolute;
+	right: 0;
+	width: 50%;
+}
+
+.pull-right:after, .pull-left:after {
+	clear: both;
+}
+
+.picture-frame {
+	
+	width: 700px;
+	height: 800px;
+}
+
+.blank-background {
+	background-color: white !important;
+}
+
+.picture-frame img {
+	
+	left: 0px;
+	position: absolute;
+	width: 800px;
+}
+
+img.full-screen {
+	width: 700px;
+	margin-top: 100px !important;
+}
+
+/*Displays small text on the bottom of slides*/
+p.reference:not(.custom) {
+	position: absolute;
+	top: 550px;
+	width: 100%;
+	font-size: 20px;
+}
+
+p.reference.larger:not(.custom) {
+	font-size: 30px;
+}

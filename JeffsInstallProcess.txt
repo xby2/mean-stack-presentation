@@ -1,0 +1,41 @@
+### Install Process
+
+NOTE: This is for Windows
+
+System specs: Window 8.1
+
+
+## [Install Git Bash with (minGW)](http://git-scm.com)
+
+https://git-scm.com/download/win
+
+## [Install Node.js](http://nodejs.org)
+
+https://nodejs.org/dist/v4.2.2/node-v4.2.2-x64.msi
+
+# In Git Bash
+
+> cd <path to project>
+> node init
+
+## [Install MongoDB](http://www.mongodb.org)
+
+https://www.mongodb.org/dr/fastdl.mongodb.org/win32/mongodb-win32-i386-3.0.7-signed.msi/download
+
+## Install Python 2.7
+https://www.python.org/download/releases/2.7/
+Add to path variable
+*make sure to press all OKs and restart Git Bash
+
+## Install Mean
+
+Open bash with "Run as Admin"
+
+> cd <path to project>
+> npm install -g mean-cli 
+> mean init yourNewApp
+> ... Follow prompt ...
+
+## Start Mongod
+
+https://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/
