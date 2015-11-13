@@ -59,36 +59,49 @@
 				<section>
 					<h2>What is the MEAN Stack?</h2>
 					<p>
-						Descriptions on what MEAN Stack is.
+						JavaScript frontend and backend web application setup.  It uses:
 					</p>
+					<ul class="label-instead-of-bullets">
+						<li><label>MongoDB</label>NoSql database</li>
+						<li><label>Express</label>Web application framework</li>
+						<li><label>Angular</label>Frontend databinding framework</li>
+						<li><label>Node</label>Server-side JavaScript environment</li>
+					</ul>
 				</section>
-
 				<section>
 					<h2>Why MEAN Stack?</h2>
-					<p>
-						Descriptions on why you would use the MEAN stack?
-					</p>
-				</section>
-				<section>
-					<h2>Why MEAN Stack?</h2>
-					<p>
-						Descriptions on why you would use the MEAN stack?
-					</p>
+					<ol>
+						<li>Match the language on the frontend</li>
+						<li>Bundled setup</li>
+					</ol>
+					<aside class="notes">
+						Share code<br/>
+						Bundled together<br/>
+						- easier<br/>
+						- Development setup and deployment is the same<br/>
+						- Support integrating components<br/>
+					</aside>
 				</section>
 				<section>
 					<h3>Node.js</h3>
 					<section>
 						<h3>What is it?</h3>
 						<p>Server-side JavaScript Environment</p>
-						<p>Competitors: </p>
+						<div>Competitors: PHP, Python</div>
 						<p class="reference">
 							<a href="https://nodejs.org/">https://nodejs.org/</a>
 						</p>
+						<aside class="notes">
+							PHP - LAMP vs MEAN<br/>
+							Python - Compare Flask/Express.js<br/>
+						</aside>
 					</section>
 					<section>
 						<h3>Why should I use it?</h3>
-						<p>Match the language on the frontend</p>
-						<p>Better concurrency for IO-bound workloads</p>
+						<ol>
+							<li>Match the language on the frontend</li>
+							<li>Better concurrency for IO-bound workloads</li>
+						</ol>
 						<p class="reference">
 							<a href="http://www.se-radio.net/tag/node-js/">http://www.se-radio.net/tag/node-js/</a>
 						</p>
@@ -115,8 +128,38 @@
 					</section>
 					<section>
 						<h3>Downside</h3>
-						<p>Code Quality With Complexity - JavaScript is not as strict as other server-side languages</p>
-						<p>Callback Hell - Async callback code can be hard to read and debug</p>
+						<ul class="label-instead-of-bullets">
+							<li><label>Code Quality With Complexity</label> - JavaScript is not as strict as other server-side languages</li>
+							<li><label>Callback Hell</label> - Async callback code can be hard to read and debug</li>
+						</ul>
+						<p class="reference">
+							<a href="http://callbackhell.com/">
+								http://callbackhell.com/
+							</a>
+						</p>
+						<aside class="notes">
+							Hard to do object oriented design in JavaScript<br/>
+							Examples coming up<br/>
+						</aside>
+					</section>
+					<section>
+						<h3>Callback Hell</h3>
+						<ul class="label-instead-of-bullets">
+							<li><label>Code Quality With Complexity</label> - JavaScript is not as strict as other server-side languages</li>
+							<li><label>Callback Hell</label> - Async callback code can be hard to read and debug</li>
+						</ul>
+						<aside class="notes">
+							Anonymous functions<br/>
+							Using a library called Q.js<br/>
+							Q.js used in GP project<br/>
+						</aside>
+					</section>
+					<section>
+						<h3>Conventions</h3>
+						<ul class="label-instead-of-bullets">
+							<li><label>Code Quality With Complexity</label> - JavaScript is not as strict as other server-side languages</li>
+							<li><label>Callback Hell</label> - Async callback code can be hard to read and debug</li>
+						</ul>
 						<p class="reference">
 							<a href="http://callbackhell.com/">
 								http://callbackhell.com/
@@ -134,10 +177,9 @@
 						<h2>Pre-Reqs</h2>
 						<p>
 							<ul>
-								<li>Node</li>
-								<li>Express</li>
+								<li>Node (with NPM)</li>
+								<li>Python</li>
 								<li>MongoDB</li>
-								<li>Others...</li>
 							</ul>
 						</p>
 					</section>
