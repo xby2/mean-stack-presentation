@@ -196,10 +196,18 @@
 						</p>
 					</section>
 					<section>
-						<h2>MongoDB</h2>
-						<p>
-							Setting up MongoDB...
-						</p>
+						<h2>Setting up MongoDB</h2>
+						<ol>
+							<li>Download and install <a href="https://www.mongodb.org/downloads#production" target="_blank">MongoDB</a> <em>(install in C:\MongoDB)</em></li>
+							<li>Create default directory - <strong>c:/data/db</strong></li>
+							<li>Run mongo server <em>(from console)</em></li>
+							<li>
+								<ul>
+									<li><code>cd c:\MongoDB\Server\3.0\bin</code></li>
+									<li><code>.\mongod</code></li>
+								</ul>
+							</li>
+						</ol>
 					</section>
 				</section>
 
@@ -209,17 +217,57 @@
 					</section>
 
 					<section>
-						<h2>MongoDB != RDBMS</h2>
-						<p>
-							Explains that MongoDB is not a relationship database, very different from SQL Server or MySQL.
-						</p>
+						<h2>MongoDB in a Nutshell</h2>
+						<ul>
+							<li>NoSQL database</li>
+							<li>
+							<ul>
+								<li>Not a relational database - no tables and rows used, but collections and documents instead.</li>
+								<li>Data stored in key-value pairs in BSON (similiar to JSON)</li>
+								<li>No schema enforcement - relies on the application</li>
+								<li>Generally provides speed and flexibility over stability and consistency</li>
+							</ul>
+							</li>
+						</ul>
 					</section>
 
 					<section>
-						<h2>Quick interaction</h2>
-						<p>
-							Use the MongoDB sheel to retrieve information
-						</p>
+					<h2>Replica Set</h2>
+						<p>MongoDB servers are capable of working together in a set to natively allow horizontal scaling</p>
+						<img src="img/MongoDBReplicaSet.png" class="blank-background" />
+					</section>
+
+					<section>
+						<h2>MongoDB Demo</h2>
+						<ul>
+							<li>Mongo shell introduction</li>
+							<li>CRUD actions via shell</li>
+							<li>Replica set features</li>
+						</ul>
+						<aside class="notes">
+							<strong>CRUD</strong><br />
+							1.  Open up mongo shell<br />
+							2.  Insert new value into db (db.people.insert)<br />
+							3.  Read values from db (db.people.find())<br />
+							4.  Update value from db (db.people.update(query, {object}))<br />
+							5.  Read value again<br />
+							6.  Delete value (db.people.remove())<br />
+							7.  Show value is deleted<br />
+							<br />
+							<strong>Replica Set</strong><br />
+							1.  Run ReplicaSet.bat<br />
+							2.  Open Mongo Shell at port 30000<br />
+							3.  Create demoConfig variable:  var demoConfig = { _id: "demo", members: [{ _id: 0, host: 'localhost:30000', priority: 10 }, { _id: 1, host: 'localhost:40000' }, { _id: 2, host: 'localhost:50000', arbiterOnly: true }] }<br />
+							4.  Initiate replica set with rs.initiate(demoConfig)<br />
+							5.  Wait for prompt to become demo:PRIMARY><br />
+							6.  Write to primary DB<br />
+							7.  Check that data is in primary<br />
+							8.  Log into mongo server on port 40000<br />
+							9.  Set slave to OK with db.setSlaveOk()<br />
+							10.  Find written data in secondary DB<br />
+							11.  Close "a" server, watch current server become primary<br />
+							12.  Reenable "a" server and watch current shell become secondary again<br />
+						</aside>
 					</section>
 				</section>
 
@@ -254,7 +302,8 @@
 				<section>
 					<h2>Further Research</h2>
 					<ul>
-						<li><a href="www.pluralsight.com/courses/description/building-angularjs-nodejs-apps-mean">Pluralsight - Building MEAN Stack Applications</a></li>
+						<li><a href="https://app.pluralsight.com/library/courses/building-angularjs-nodejs-apps-mean/table-of-contents" target="_blank">Pluralsight - Building MEAN Stack Applications</a></li>
+						<li><a href="https://app.pluralsight.com/library/courses/mongodb-introduction/table-of-contents" target="_blank">Pluralsight - Introduction to MongoDB</a></li>
 					</ul>
 				</section>
 			</div>
