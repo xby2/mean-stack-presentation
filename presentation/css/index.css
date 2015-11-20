@@ -69,3 +69,10 @@ p.reference.larger:not(.custom) {
     font-size: 1.3em;
 }
 
+#threadModel {
+    top: 85px;
+}
+
+img#meanArch {
+    width: 465px;
+}
