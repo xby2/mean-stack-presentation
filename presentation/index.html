@@ -94,7 +94,7 @@
 					<section>
 						<h3>What is it?</h3>
 						<p>Server-side JavaScript Environment</p>
-						<div>Competitors: PHP, Python</div>
+						<div>Competitors: PHP, Python, .Net</div>
 						<p class="reference">
 							<a href="https://nodejs.org/">https://nodejs.org/</a>
 						</p>
@@ -151,10 +151,26 @@
 					</section>
 					<section>
 						<h3>Callback Hell</h3>
-						<ul class="label-instead-of-bullets">
-							<li><label>Code Quality With Complexity</label> - JavaScript is not as strict as other server-side languages</li>
-							<li><label>Callback Hell</label> - Async callback code can be hard to read and debug</li>
-						</ul>
+						<code id="cbh1"><pre>
+		x = getData(); //Asyc call
+		y = getMoreData(x); //Asyc call
+		z = getMoreData(y); //Asyc call
+		var result = z;</pre></code>
+					<p>...in JavaScript...</p>
+					<code id="cbh2"><pre>
+		getData(function(x){
+		    getMoreData(x, function(y){
+		        getMoreData(y, function(z){ 
+		            …
+					var result = z;
+		        });
+		    });
+		});</pre></code>
+					<p>Use a library like Q.js</p>
+					<code id="cbh3"><pre>
+		var result = getData()
+			.Then(getMoreData)
+			.Then(getMoreData)</pre></code>
 						<aside class="notes">
 							Anonymous functions<br/>
 							Using a library called Q.js<br/>
@@ -223,7 +239,7 @@
 
 					<section>
 						<h3>MongoDB</h3>
-						<p>MongoDB is a no-SQL database that stores its values in a JSON-like documents with dynamic schemas.</p>
+						<p>MongoDB is a no-SQL database that stores its values in JSON-like documents with dynamic schemas.</p>
 					</section>
 
 					<section>
@@ -248,7 +264,7 @@
 					</section>
 
 					<section>
-						<h3>NoSQL vs. RDBMS</h3>
+						<h3>RDBMS vs. NoSQL</h3>
 						<img src="img/SQLvsNoSQL2.jpg" class="blank-background" />
 					</section>
 

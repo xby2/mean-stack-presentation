@@ -74,5 +74,6 @@ p.reference.larger:not(.custom) {
 }
 
 img#meanArch {
-    width: 465px;
+    width: 530px;
+    margin-top: 15px !important;
 }
