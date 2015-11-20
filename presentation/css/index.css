@@ -57,3 +57,15 @@ p.reference:not(.custom) {
 p.reference.larger:not(.custom) {
 	font-size: 30px;
 }
+
+.label-instead-of-bullets.label-instead-of-bullets {
+    list-style: none;
+}
+
+.label-instead-of-bullets label {
+    padding: 10px;
+    display: inline-block;
+    color: #f93;
+    font-size: 1.3em;
+}
+
