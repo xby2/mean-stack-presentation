@@ -255,15 +255,26 @@
 								<li>Not a relational database - no tables and rows used, but collections and documents instead.</li>
 								<li>Data stored in key-value pairs in BSON (similiar to JSON)</li>
 								<li>No schema enforcement - relies on the application</li>
-								<li>Generally provides speed and flexibility over stability and consistency</li>
+								<li>Provides eventual consistency vs. strict consistency (faster, potentially less real-time accuracy)</li>
+								<li>Generally more flexible than a relational database, with both good and bad.</li>
 							</ul>
 							</li>
 						</ul>
 					</section>
+					
+					<section>
+						<h2>MongoDB Storage - BSON</h2>
+						<img src="img/MongoDBCollection.png" class="blank-background" />
+					</section>
+
+					<section>
+						<h2>NoSQL vs. RDBMS</h2>
+						<img src="img/SQLvsNoSQL2.jpg" class="blank-background" />
+					</section>
 
 					<section>
 					<h2>Replica Set</h2>
-						<p>MongoDB servers are capable of working together in a set to natively allow horizontal scaling</p>
+						<p>MongoDB servers are capable of working together in a set to natively allow horizontal scaling and eventual consistency.</p>
 						<img src="img/MongoDBReplicaSet.png" class="blank-background" />
 					</section>
 
