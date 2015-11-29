@@ -3,42 +3,16 @@
 
 	var app = angular.module("peanutGallery", []);
 
-	var testPostData = [
-		{
-			title: "Test post 1",
-			body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sollicitudin libero non malesuada feugiat. Nunc in imperdiet ex, sit amet rhoncus neque. Mauris quis arcu nisi.",
-			timestamp: "2015-11-28 07:52:00 PM"
-		},
-		{
-			title: "Test post 2",
-			body: "Proin ornare sollicitudin viverra. In hac habitasse platea dictumst. Morbi sed cursus ex, vel viverra sapien. Mauris dapibus enim rhoncus ullamcorper fermentum. Ut dignissim, nunc in consequat volutpat, diam felis dapibus magna, et iaculis neque eros non dolor.",
-			timestamp: "2015-11-28 07:53:00 PM"
-		},
-		{
-			title: "Test post 3",
-			body: "Morbi rutrum elit eu enim pharetra, ut pulvinar orci auctor.",
-			timestamp: "2015-11-28 07:54:00 PM"
-		}
-	]
-
 	app.controller("mainController", [
 		"$scope",
 		"$http",
 		function($scope, $http) {
 
-			$scope.test = "Hello world!";
-			$scope.posts = testPostData;
+			$scope.posts = [];
+			$scope.newPost = "";
 
-			$scope.newPost = null;
-
-			$scope.createNewPost = function() {
-				$scope.posts.push({
-					title: "Test post " + ($scope.posts.length + 1),
-					body: $scope.newPost,
-					timestamp: "right now"
-				});
-
-				$scope.newPost = null;
+			$scope.init = function() {
+				$scope.getAll();
 			};
 
 			$scope.getAll = function() {
@@ -47,7 +21,25 @@
 				})
 			};
 
-			$scope.getAll();
+			$scope.createNewPost = function() {
+				var tempPost = {
+					title: $scope.posts.length + 1 + "",
+					body: $scope.newPost,
+					timestamp: new Date()
+				};
+
+				$scope.create(tempPost);
+
+				$scope.newPost = null;
+			};
+
+			$scope.create = function(post) {
+				return $http.post("/posts", post).success(function(data) {
+					$scope.posts.push(data);
+				});
+			};
+
+			$scope.init();
 		}
 	]);
 
