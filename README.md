@@ -8,8 +8,6 @@ Presentation for MEAN Stack for Michigan Hackers.
 - Install [MongoDB](https://www.mongodb.org/downloads#production)
 	- Install at C:\mongodb
 
-- Navigate to example-site directory in repository
-
 
 ## Start Mongo
 - Create the default DB directory (if it does not exist)
