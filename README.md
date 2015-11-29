@@ -5,37 +5,22 @@ Presentation for MEAN Stack for Michigan Hackers.
 
 - Install [Node.js](https://nodejs.org/en/download/)
 
-- Install express
-```bash
-> npm install express
-```
+- Install [MongoDB](https://www.mongodb.org/downloads#production)
+	- Install at C:\mongodb
 
 - Navigate to example-site directory in repository
 
-  - Install packages
+
+## Start Mongo
+- Create the default DB directory (if it does not exist)
 ```bash
-> npm install
+mkdir C:\data\db
 ```
-  - Start express
+- Start Mongo DB
 ```bash
-> npm start
+C:\mongodb\Server\3.0\bin\mongodb
 ```
-
-- Navigate to [localhost:3000](http://localhost:3000)
-
-## Installing and Configuring MongoDB
-
-1.  Download and install [MongoDB](https://www.mongodb.org/downloads#production)
-  - When installing MongoDB, it is recommended you change the installation directory to 'C:\MongoDB\Server\3.0\bin'
-2.  Create the default DB directory C:\data\db if it doesn't already exist.
-3.  Verify the installation was successful by running the MongoDB server:
-```bash
-> cd C:\MongoDB\Server\3.0\bin
-> .\mongod
+The following should appear on the last line in the console:
 ```
-
-The following should appear in the last line:
-
-```
-I NETWORK  [initandlisten] waiting for connections on port 27017
+I NETWORK [initandlisten] waiting for connections on port 27017
 ```
