@@ -23,7 +23,8 @@
 
 	app.controller("mainController", [
 		"$scope",
-		function($scope) {
+		"$http",
+		function($scope, $http) {
 
 			$scope.test = "Hello world!";
 			$scope.posts = testPostData;
@@ -39,6 +40,14 @@
 
 				$scope.newPost = null;
 			};
+
+			$scope.getAll = function() {
+				return $http.get("/posts").success(function(data) {
+					angular.copy(data, $scope.posts);
+				})
+			};
+
+			$scope.getAll();
 		}
 	]);
 
