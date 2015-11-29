@@ -8,6 +8,10 @@
 		<div class="title">
 			<h1>The Peanut Gallery</h1>
 		</div>
+		<div>
+			<input placeholder="say something" ng-model="newPost" />
+			<button ng-click="createNewPost()">Submit</button>
+		</div>
 		<div ng-repeat="post in posts">
 			<div>
 				<h3>{{ post.title }}</h3>
