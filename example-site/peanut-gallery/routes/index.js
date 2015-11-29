@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 	res.render('index', { title: 'Peanut gallery...' });
 });
 
+// Gets all posts
 router.get("/posts", function(req, res, next) {
 	Post.find(function(err, posts) {
 		if (err) {
@@ -19,6 +20,7 @@ router.get("/posts", function(req, res, next) {
 	});
 });
 
+// Saves posts
 router.post("/posts", function(req, res, next) {
 	var post = new Post(req.body);
 
@@ -30,6 +32,5 @@ router.post("/posts", function(req, res, next) {
 		res.json(post);
 	});
 });
-
 
 module.exports = router;
