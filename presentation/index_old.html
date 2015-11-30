@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>MEAN Stack Tutorial</title>
+
+		<meta name="description" content="A tutorial on using the MEAN framework for developing web applications">
+		<meta name="author" content="Mohammed Hussain, Jeff Sallans, Dave Farinelli">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/index.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Mean Stack Tutorial</h1>
+					<h3>A tutorial on using the MEAN framework for developing web applications</h3>
+					<p>
+						<small>Created by Mohammed Hussain, Jeff Sallans, Dave Farinelli</small>
+					</p>
+					<aside class="notes">
+						Get a sense of the crowd:<br/>
+							How many heard of Node.js?<br/>
+							MongoDB?<br/>
+					</aside>
+				</section>
+
+				<section>
+					<h2>What is the MEAN Stack?</h2>
+					<p>
+						JavaScript frontend and backend web application setup.  It uses:
+					</p>
+					<ul class="label-instead-of-bullets">
+						<li><label>MongoDB</label>NoSql database</li>
+						<li><label>Express</label>Web application framework</li>
+						<li><label>Angular</label>Frontend databinding framework</li>
+						<li><label>Node</label>Server-side JavaScript environment</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Why MEAN Stack?</h2>
+					<ul class="label-instead-of-bullets">
+						<li><label>Match the language on the frontend</label></li>
+						<li><label>Bundled setup</label></li>
+					</ul>
+					<aside class="notes">
+						Share code<br/>
+						Bundled together<br/>
+						- easier<br/>
+						- Development setup and deployment is the same<br/>
+						- Support integrating components<br/>
+					</aside>
+				</section>
+				<section>
+					<h2>How it fits together</h2>
+					<img id="meanArch" class="full-screen blank-background" src="img/meanArchitecture2.png">
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<section><h1>Node.js</h1></section>
+
+					<section>
+						<h3>What is it?</h3>
+						<p>Server-side JavaScript Environment</p>
+						<div>Competitors: PHP, Python, .Net</div>
+						<p class="reference">
+							<a href="https://nodejs.org/">https://nodejs.org/</a>
+						</p>
+						<aside class="notes">
+							PHP - LAMP vs MEAN<br/>
+							Python - Compare Flask/Express.js<br/>
+						</aside>
+					</section>
+					<section>
+						<h3>Why should I use it?</h3>
+						<ol>
+							<li>Match the language on the frontend</li>
+							<li>Better concurrency for IO-bound workloads</li>
+						</ol>
+						<p class="reference">
+							<a href="http://www.se-radio.net/tag/node-js/">http://www.se-radio.net/tag/node-js/</a>
+						</p>
+						<aside class="notes">
+							talked about this for MEAN stack<br/>
+							I/O workload - Reading/writting a file/database<br/>
+							Dive into the second part<br/>
+						</aside>
+					</section>
+					<section>
+						<h3>Node.js Concurrency Model</h3>
+						<img class="full-screen blank-background" src="img/nodeJsAsyncAdvantage.png">
+						<p class="reference">
+							<a id="threadModel" href="http://stackoverflow.com/questions/14795145/how-the-single-threaded-non-blocking-io-model-works-in-node-jS">
+								http://stackoverflow.com/questions/14795145/how-the-single-threaded-non-blocking-io-model-works-in-node-jS
+							</a>
+						</p>
+						<aside class="notes">
+							Start with explaining a sample request<br/>
+							Highlight the single thread managing the I/O operations<br/>
+							1 and 2 took a while<br/>
+							3rd and 4th are satisfied<br/> 
+						</aside>
+					</section>
+					<section>
+						<h3>Downside</h3>
+						<ul class="label-instead-of-bullets">
+							<li><label>Code Quality With Complexity</label> - JavaScript is not as strict as other server-side languages</li>
+							<li><label>Callback Hell</label> - Async callback code can be hard to read and debug</li>
+						</ul>
+						<p class="reference">
+							<a href="http://callbackhell.com/">
+								http://callbackhell.com/
+							</a>
+						</p>
+						<aside class="notes">
+							Hard to do object oriented design in JavaScript<br/>
+							Examples coming up<br/>
+						</aside>
+					</section>
+					<section>
+						<h3>Callback Hell</h3>
+						<code id="cbh1"><pre>
+		x = getData(); //Asyc call
+		y = getMoreData(x); //Asyc call
+		z = getMoreData(y); //Asyc call
+		var result = z;</pre></code>
+					<p>...in JavaScript...</p>
+					<code id="cbh2"><pre>
+		getData(function(x){
+		    getMoreData(x, function(y){
+		        getMoreData(y, function(z){ 
+		            …
+					var result = z;
+		        });
+		    });
+		});</pre></code>
+					<p>Use a library like Q.js</p>
+					<code id="cbh3"><pre>
+		var result = getData()
+			.Then(getMoreData)
+			.Then(getMoreData)</pre></code>
+						<aside class="notes">
+							Anonymous functions<br/>
+							Using a library called Q.js<br/>
+							Q.js used in GP project<br/>
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Express<h1>
+					</section>
+
+					<section>
+						<h3>What is Express</h3>
+						<p>Another javascript framework, and apparently the most popular one.</p>
+					</section>
+					<section>
+						<h3>What is Express</h3>
+						<ul>
+							<li>Lightweight web application framework</li>
+							<li>Built using node.js http module</li>
+							<li>Organized into an MVC framework</li>
+							<li>Uses a templating language, typically EJS or jade</li>
+						</ul>
+					</section>
+					<section>
+						<h3>What is Express</h3>
+						<ul>
+							<li>Manages routes</li>
+							<li>Handles requests and view</li>
+							<li>Feature richness available through plugins</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Why Express</h3>
+						<ul>
+							<li>Most mature node.js framework. Released in 2009, has over 5 years of development</li>
+							<li>Massive community with a lot of support</li>
+							<li>Small learning curve</li>
+							<li>Modular</li>
+							<li>Allows use of MVC architecture, and provides templating and rendering</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Why not Express</h3>
+						<ul>
+							<li>Built using node</li>
+							<li>Must configure all endpoints (500 errors)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Other options</h3>
+						<ul>
+							<li>IIS</li>
+							<li>Meteor js - large following and push for it</li>
+							<li>LAMP</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>MongoDB</h1>
+					</section>
+
+					<section>
+						<h3>MongoDB</h3>
+						<p>MongoDB is a no-SQL database that stores its values in JSON-like documents with dynamic schemas.</p>
+					</section>
+
+					<section>
+						<h3>MongoDB in a Nutshell</h3>
+						<ul>
+							<li>NoSQL database</li>
+							<li>
+							<ul>
+								<li>Not a relational database - no tables and rows used, but collections and documents instead.</li>
+								<li>Data stored in key-value pairs in BSON (similiar to JSON)</li>
+								<li>No schema enforcement - relies on the application</li>
+								<li>Provides eventual consistency vs. strict consistency (faster, potentially less real-time accuracy)</li>
+								<li>Generally more flexible than a relational database, with both good and bad.</li>
+							</ul>
+							</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h3>MongoDB Storage - BSON</h3>
+						<img src="img/MongoDBCollection.png" class="blank-background" />
+					</section>
+
+					<section>
+						<h3>RDBMS vs. NoSQL</h3>
+						<img src="img/SQLvsNoSQL2.jpg" class="blank-background" />
+					</section>
+
+					<section>
+					<h3>Replica Set</h3>
+						<p>MongoDB servers are capable of working together in a set to natively allow horizontal scaling and eventual consistency.</p>
+						<img src="img/MongoDBReplicaSet.png" class="blank-background" />
+					</section>
+
+					<section>
+						<h3>Setting up MongoDB</h3>
+						<ol>
+							<li>Download and install <a href="https://www.mongodb.org/downloads#production" target="_blank">MongoDB</a> <em>(install in C:\MongoDB)</em></li>
+							<li>Create default directory - <strong>c:/data/db</strong></li>
+							<li>Run mongo server <em>(from console)</em></li>
+							<li>
+								<ul>
+									<li><code>cd c:\MongoDB\Server\3.0\bin</code></li>
+									<li><code>.\mongod</code></li>
+								</ul>
+							</li>
+						</ol>
+					</section>
+
+					<section>
+						<h3>MongoDB Demo</h3>
+						<ul>
+							<li>Mongo shell introduction</li>
+							<li>CRUD actions via shell</li>
+							<li>Replica set features</li>
+						</ul>
+						<aside class="notes">
+							<strong>CRUD</strong><br />
+							1.  Open up mongo shell<br />
+							2.  Insert new value into db (db.people.insert)<br />
+							3.  Read values from db (db.people.find())<br />
+							4.  Update value from db (db.people.update(query, {object}))<br />
+							5.  Read value again<br />
+							6.  Delete value (db.people.remove())<br />
+							7.  Show value is deleted<br />
+							<br />
+							<strong>Replica Set</strong><br />
+							1.  Run ReplicaSet.bat<br />
+							2.  Open Mongo Shell at port 30000<br />
+							3.  Create demoConfig variable:  var demoConfig = { _id: "demo", members: [{ _id: 0, host: 'localhost:30000', priority: 10 }, { _id: 1, host: 'localhost:40000' }, { _id: 2, host: 'localhost:50000', arbiterOnly: true }] }<br />
+							4.  Initiate replica set with rs.initiate(demoConfig)<br />
+							5.  Wait for prompt to become demo:PRIMARY><br />
+							6.  Write to primary DB<br />
+							7.  Check that data is in primary<br />
+							8.  Log into mongo server on port 40000<br />
+							9.  Set slave to OK with db.setSlaveOk()<br />
+							10.  Find written data in secondary DB<br />
+							11.  Close "a" server, watch current server become primary<br />
+							12.  Reenable "a" server and watch current shell become secondary again<br />
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Angular</h1>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>ADK</h1>
+						<p>Additional domain knowledge</p>
+					</section>
+
+					<section>
+						<h3>Glup vs Grunt</h3>
+						<p>Code vs config files</p>
+						<p>Go with Gulp</p>
+						<p class="reference">
+							<a href="https://medium.com/@preslavrachev/gulp-vs-grunt-why-one-why-the-other-f5d3b398edc4">
+								https://medium.com/@preslavrachev/gulp-vs-grunt-why-one-why-the-other-f5d3b398edc4
+							</a>
+						</p>
+					</section>
+					<section>
+						<h3>NPM vs Bower</h3>
+						<p><b>NPM</b> - Resolves dependencies in a <b>nested</b> structure (used on the backend for easier setup/deploy)</p>
+						<p><b>Bower</b> - Resolves dependencies in a <b>flat</b> structure (used on the frontend to keep client code light)</p>
+						<p class="reference">
+							<a href="http://stackoverflow.com/questions/18641899/what-is-the-difference-between-bower-and-npm">
+								http://stackoverflow.com/questions/18641899/what-is-the-difference-between-bower-and-npm
+							</a>
+						</p>
+					</section>
+				</section>
+
+
+				<section>
+					<h2>Further Research</h2>
+					<ul>
+						<li><a href="https://app.pluralsight.com/library/courses/building-angularjs-nodejs-apps-mean/table-of-contents" target="_blank">Pluralsight - Building MEAN Stack Applications</a></li>
+						<li><a href="https://app.pluralsight.com/library/courses/mongodb-introduction/table-of-contents" target="_blank">Pluralsight - Introduction to MongoDB</a></li>
+					</ul>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

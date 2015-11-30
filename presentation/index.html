@@ -88,245 +88,271 @@
 					<aside class="notes">
 					</aside>
 				</section>
+
 				<section>
-					<section><h1>Node.js</h1></section>
 
 					<section>
-						<h3>What is it?</h3>
-						<p>Server-side JavaScript Environment</p>
-						<div>Competitors: PHP, Python, .Net</div>
-						<p class="reference">
-							<a href="https://nodejs.org/">https://nodejs.org/</a>
-						</p>
-						<aside class="notes">
-							PHP - LAMP vs MEAN<br/>
-							Python - Compare Flask/Express.js<br/>
-						</aside>
+						<h2>Writing an app</h2>
 					</section>
 					<section>
-						<h3>Why should I use it?</h3>
-						<ol>
-							<li>Match the language on the frontend</li>
-							<li>Better concurrency for IO-bound workloads</li>
-						</ol>
-						<p class="reference">
-							<a href="http://www.se-radio.net/tag/node-js/">http://www.se-radio.net/tag/node-js/</a>
-						</p>
-						<aside class="notes">
-							talked about this for MEAN stack<br/>
-							I/O workload - Reading/writting a file/database<br/>
-							Dive into the second part<br/>
-						</aside>
+						Navigate to site directory
 					</section>
 					<section>
-						<h3>Node.js Concurrency Model</h3>
-						<img class="full-screen blank-background" src="img/nodeJsAsyncAdvantage.png">
-						<p class="reference">
-							<a id="threadModel" href="http://stackoverflow.com/questions/14795145/how-the-single-threaded-non-blocking-io-model-works-in-node-jS">
-								http://stackoverflow.com/questions/14795145/how-the-single-threaded-non-blocking-io-model-works-in-node-jS
-							</a>
-						</p>
-						<aside class="notes">
-							Start with explaining a sample request<br/>
-							Highlight the single thread managing the I/O operations<br/>
-							1 and 2 took a while<br/>
-							3rd and 4th are satisfied<br/> 
-						</aside>
+						Run command:
+						<pre>
+							<code class="hljs Bash hljs">npm install -g express-generator</code>
+						</pre>
 					</section>
 					<section>
-						<h3>Downside</h3>
-						<ul class="label-instead-of-bullets">
-							<li><label>Code Quality With Complexity</label> - JavaScript is not as strict as other server-side languages</li>
-							<li><label>Callback Hell</label> - Async callback code can be hard to read and debug</li>
-						</ul>
-						<p class="reference">
-							<a href="http://callbackhell.com/">
-								http://callbackhell.com/
-							</a>
-						</p>
-						<aside class="notes">
-							Hard to do object oriented design in JavaScript<br/>
-							Examples coming up<br/>
-						</aside>
+						Run command:
+						<pre>
+							<code class="hljs Bash hljs">express --ejs site-name</code>
+						</pre>
 					</section>
 					<section>
-						<h3>Callback Hell</h3>
-						<code id="cbh1"><pre>
-		x = getData(); //Asyc call
-		y = getMoreData(x); //Asyc call
-		z = getMoreData(y); //Asyc call
-		var result = z;</pre></code>
-					<p>...in JavaScript...</p>
-					<code id="cbh2"><pre>
-		getData(function(x){
-		    getMoreData(x, function(y){
-		        getMoreData(y, function(z){ 
-		            …
-					var result = z;
-		        });
-		    });
-		});</pre></code>
-					<p>Use a library like Q.js</p>
-					<code id="cbh3"><pre>
-		var result = getData()
-			.Then(getMoreData)
-			.Then(getMoreData)</pre></code>
-						<aside class="notes">
-							Anonymous functions<br/>
-							Using a library called Q.js<br/>
-							Q.js used in GP project<br/>
-						</aside>
+						Navigate into new directory
 					</section>
+					<section>
+						Run command:
+						<pre>
+							<code class="hljs Bash hljs">npm install</code>
+						</pre>
+					</section>
+					<section>
+						Run command:
+						<pre>
+							<code class="hljs Bash hljs">npm install --save mongoose</code>
+						</pre>
+					</section>
+					<section>
+						Make a new directory for your models
+					</section>
+					<section>
+						Open up file ./app.js, and add this line to the top:
+						<pre>
+							<code class="hljs Javascript hljs">var mongoose = require("mongoose");</code>
+						</pre>
+					</section>
+					<section>
+						Add this line after requiring mongoose:
+						<pre>
+							<code class="hljs Javascript hljs">var mongoose = require("mongoose");</code>
+						</pre>
+					</section>
+					<section>
+						Connect to your local mongoose server
+						<pre>
+							<code class="hljs Javascript hljs">
+require("./models/Posts");
+mongoose.connect('mongodb://localhost/peanutgallery');</code>
+						</pre>
+					</section>
+					<section>
+						Create a new file ./models/Posts.js
+					</section>
+					<section>
+						Add code to create mongodb schema
+						<pre>
+							<code class="hljs Javascript hljs">var mongoose = require("mongoose");
+var PostSchema = new mongoose.Schema({
+  title: String,
+  body: String,
+  timestamp: Date
+});
+mongoose.model("Post", PostSchema);</code>
+						</pre>
+					</section>
+					<section>
+						Open up the ./route/index.js
+					</section>
+					<section>
+						Create GET route for index:
+						<pre>
+							<code class="hljs Javascript hljs">router.get("/", function(req, res, next) {
+  res.render("index");
+});</code>
+						</pre>
+					</section>
+					<section>
+						Create GET route for retrieving models:
+						<pre>
+							<code class="hljs Javascript hljs">router.get("/posts", function(req, res, next) {
+  Post.find(function(err, posts) {
+    if (err) {
+      return next(err);
+    }
+
+    res.json(posts);
+  });
+});</code>
+						</pre>
+					</section>
+					<section>
+						Create POST route for posting models:
+						<pre>
+							<code class="hljs Javascript hljs">router.post("/posts", function(req, res, next) {
+  var post = new Post(req.body);
+
+  post.save(function(err, post) {
+    if (err) {
+      return next(err);
+    }
+
+    res.json(post);
+  });
+});</code>
+						</pre>
+					</section>
+					<section>
+						Start site:
+						<pre>
+							<code class="hljs Bash hljs">npm start</code>
+						</pre>
+					</section>
+					<section>
+						Navigate to http://localhost:3000/posts
+					</section>
+
 				</section>
 
 				<section>
-					<section>
-						<h1>Express<h1>
-					</section>
 
 					<section>
-						<h3>What is Express</h3>
-						<p>Another javascript framework, and apparently the most popular one.</p>
+						Angular
+					</section>					
+					<section>
+						Add <a href="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">angular</a> code to ./public/scripts/angular.min.js
 					</section>
 					<section>
-						<h3>What is Express</h3>
-						<ul>
-							<li>Lightweight web application framework</li>
-							<li>Built using node.js http module</li>
-							<li>Organized into an MVC framework</li>
-							<li>Uses a templating language, typically EJS or jade</li>
-						</ul>
+						<div>Create new files:</div>
+						<div>./public/scripts/pgapp.js</div>
+						<div>./view/index.ejs</div>
 					</section>
 					<section>
-						<h3>What is Express</h3>
-						<ul>
-							<li>Manages routes</li>
-							<li>Handles requests and view</li>
-							<li>Feature richness available through plugins</li>
-						</ul>
+						Add head and body to index.ejs
+						<pre>
+							<code class="hljs Html hljs">
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;say something&lt;/title&gt;
+    &lt;script src=&quot;/scripts/angular.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/scripts/pgapp.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+							</code>
+						</pre>
 					</section>
 					<section>
-						<h3>Why Express</h3>
-						<ul>
-							<li>Most mature node.js framework. Released in 2009, has over 5 years of development</li>
-							<li>Massive community with a lot of support</li>
-							<li>Small learning curve</li>
-							<li>Modular</li>
-							<li>Allows use of MVC architecture, and provides templating and rendering</li>
-						</ul>
-					</section>
-					<section>
-						<h3>Why not Express</h3>
-						<ul>
-							<li>Built using node</li>
-							<li>Must configure all endpoints (500 errors)</li>
-						</ul>
-					</section>
-					<section>
-						<h3>Other options</h3>
-						<ul>
-							<li>IIS</li>
-							<li>Meteor js - large following and push for it</li>
-							<li>LAMP</li>
-						</ul>
-					</section>
-				</section>
+						Create a new angular app in pgapp.js
+						<pre>
+							<code class="hljs Javascript hljs">
+(function() {
+  "use strict";
 
-				<section>
+  var app = angular.module("peanutGallery", []);
+})();
+							</code>
+						</pre>
+					</section>
 					<section>
-						<h1>MongoDB</h1>
+						Add ng-app and a quick demo to index.ejs
+						<pre>
+							<code class="hljs Html hljs">
+&lt;body ng-app=&quot;peanutGallery&quot;&gt;
+  {{ 1 / (1 / (1 - (3/4))) }}
+&lt;/body&gt;
+							</code>
+						</pre>
+					</section>
+					<section>
+						Add a new controller to pgapp.js
+						<pre>
+							<code class="hljs Javascript hljs">"use strict";
+
+var app = angular.module("peanutGallery", []);
+
+app.controller("mainController", [
+  "$scope",
+  "$http",
+  function($scope, $http) {
+    $scope.test = 1 / (1 / (1 - (3/4)));
+  }
+]);
+</code>
+						</pre>
+					</section>
+					<section>
+						Add controller to the body
+						<pre>
+							<code class="hljs Html hljs">
+&lt;body ng-app=&quot;peanutGallery&quot; ng-controller=&quot;mainController&quot;&gt;
+  {{ test }}
+&lt;/body&gt;
+							</code>
+						</pre>
+					</section>
+					<section>
+						Add ability to retrieve posts
+						<pre>
+							<code class="hljs Javascript hljs">$scope.posts = [];
+$scope.newPost = "";
+
+$scope.init = function() {
+  $scope.getAllPosts();
+}
+
+$scope.getAllPosts = function() {
+  return $http.get("/posts").success(function(data) {
+    angular.copy(data, $scope.posts);
+  });
+};</code>
+						</pre>
+					</section>
+					<section>
+						Add ability to create posts
+						<pre>
+							<code class="hljs Javascript hljs">$scope.createNewPost = function() {
+  var tempPost = {
+    title: $scope.posts.length + 1 + "",
+    body: $scope.newPost,
+    timestamp: new Date()
+  };
+
+  $http.post("/post", tempPost).success(function(data) {
+    $scope.posts.push(data);
+  };
+
+  $scope.newPost = "";
+};
+
+$scope.init();</code>
+						</pre>
+					</section>
+					<section>
+						Display and create posts on index.ejs
+						<pre>
+							<code class="hljs Javascript hljs">&lt;div class=&quot;title&quot;&gt;
+  &lt;h1&gt;The Peanut Gallery&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;input placeholder=&quot;say something&quot; ng-model=&quot;newPost&quot; /&gt;
+  &lt;button ng-click=&quot;createNewPost()&quot;&gt;Submit&lt;/button&gt;
+&lt;/div&gt;
+&lt;div ng-repeat=&quot;post in posts&quot;&gt;
+  &lt;div&gt;
+    &lt;h3&gt;{{ post.title }}&lt;/h3&gt;
+    &lt;p&gt;{{ post.body }}&lt;/p&gt;
+    &lt;i&gt;{{ post.timestamp }}&lt;/i&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code>
+						</pre>
+					</section>
+					<section>
+						Anndddd we're done.
 					</section>
 
-					<section>
-						<h3>MongoDB</h3>
-						<p>MongoDB is a no-SQL database that stores its values in JSON-like documents with dynamic schemas.</p>
-					</section>
-
-					<section>
-						<h3>MongoDB in a Nutshell</h3>
-						<ul>
-							<li>NoSQL database</li>
-							<li>
-							<ul>
-								<li>Not a relational database - no tables and rows used, but collections and documents instead.</li>
-								<li>Data stored in key-value pairs in BSON (similiar to JSON)</li>
-								<li>No schema enforcement - relies on the application</li>
-								<li>Provides eventual consistency vs. strict consistency (faster, potentially less real-time accuracy)</li>
-								<li>Generally more flexible than a relational database, with both good and bad.</li>
-							</ul>
-							</li>
-						</ul>
-					</section>
-					
-					<section>
-						<h3>MongoDB Storage - BSON</h3>
-						<img src="img/MongoDBCollection.png" class="blank-background" />
-					</section>
-
-					<section>
-						<h3>RDBMS vs. NoSQL</h3>
-						<img src="img/SQLvsNoSQL2.jpg" class="blank-background" />
-					</section>
-
-					<section>
-					<h3>Replica Set</h3>
-						<p>MongoDB servers are capable of working together in a set to natively allow horizontal scaling and eventual consistency.</p>
-						<img src="img/MongoDBReplicaSet.png" class="blank-background" />
-					</section>
-
-					<section>
-						<h3>Setting up MongoDB</h3>
-						<ol>
-							<li>Download and install <a href="https://www.mongodb.org/downloads#production" target="_blank">MongoDB</a> <em>(install in C:\MongoDB)</em></li>
-							<li>Create default directory - <strong>c:/data/db</strong></li>
-							<li>Run mongo server <em>(from console)</em></li>
-							<li>
-								<ul>
-									<li><code>cd c:\MongoDB\Server\3.0\bin</code></li>
-									<li><code>.\mongod</code></li>
-								</ul>
-							</li>
-						</ol>
-					</section>
-
-					<section>
-						<h3>MongoDB Demo</h3>
-						<ul>
-							<li>Mongo shell introduction</li>
-							<li>CRUD actions via shell</li>
-							<li>Replica set features</li>
-						</ul>
-						<aside class="notes">
-							<strong>CRUD</strong><br />
-							1.  Open up mongo shell<br />
-							2.  Insert new value into db (db.people.insert)<br />
-							3.  Read values from db (db.people.find())<br />
-							4.  Update value from db (db.people.update(query, {object}))<br />
-							5.  Read value again<br />
-							6.  Delete value (db.people.remove())<br />
-							7.  Show value is deleted<br />
-							<br />
-							<strong>Replica Set</strong><br />
-							1.  Run ReplicaSet.bat<br />
-							2.  Open Mongo Shell at port 30000<br />
-							3.  Create demoConfig variable:  var demoConfig = { _id: "demo", members: [{ _id: 0, host: 'localhost:30000', priority: 10 }, { _id: 1, host: 'localhost:40000' }, { _id: 2, host: 'localhost:50000', arbiterOnly: true }] }<br />
-							4.  Initiate replica set with rs.initiate(demoConfig)<br />
-							5.  Wait for prompt to become demo:PRIMARY><br />
-							6.  Write to primary DB<br />
-							7.  Check that data is in primary<br />
-							8.  Log into mongo server on port 40000<br />
-							9.  Set slave to OK with db.setSlaveOk()<br />
-							10.  Find written data in secondary DB<br />
-							11.  Close "a" server, watch current server become primary<br />
-							12.  Reenable "a" server and watch current shell become secondary again<br />
-						</aside>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<h1>Angular</h1>
-					</section>
 				</section>
 
 				<section>
@@ -336,7 +362,7 @@
 					</section>
 
 					<section>
-						<h3>Glup vs Grunt</h3>
+						<h3>Gulp vs Grunt</h3>
 						<p>Code vs config files</p>
 						<p>Go with Gulp</p>
 						<p class="reference">
