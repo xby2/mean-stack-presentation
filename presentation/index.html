@@ -134,12 +134,6 @@
 						</pre>
 					</section>
 					<section>
-						Add this line after requiring mongoose:
-						<pre>
-							<code class="hljs Javascript hljs">var mongoose = require("mongoose");</code>
-						</pre>
-					</section>
-					<section>
 						Connect to your local mongoose server
 						<pre>
 							<code class="hljs Javascript hljs">
@@ -320,9 +314,9 @@ $scope.getAllPosts = function() {
     timestamp: new Date()
   };
 
-  $http.post("/post", tempPost).success(function(data) {
+  $http.post("/posts", tempPost).success(function(data) {
     $scope.posts.push(data);
-  };
+  });
 
   $scope.newPost = "";
 };
