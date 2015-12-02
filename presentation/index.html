@@ -92,19 +92,23 @@
 				<section>
 
 					<section>
-						<h2>Writing an app</h2>
+						<h2>Writing an app from scratch</h2>
 					</section>
 					<section>
 						Navigate to site directory
 					</section>
 					<section>
-						Run command:
+						<p>Install Node package Express generator to sllow for quickly generating a new Express site.</p>
+
+						<p>Run the command:</p>
 						<pre>
 							<code class="hljs Bash hljs">npm install -g express-generator</code>
 						</pre>
 					</section>
 					<section>
-						Run command:
+						<p>Run the express command to generate a new Express site using ejs client-side templates.</p>
+
+						<p>Run the command:</p>
 						<pre>
 							<code class="hljs Bash hljs">express --ejs site-name</code>
 						</pre>
@@ -113,13 +117,17 @@
 						Navigate into new directory
 					</section>
 					<section>
-						Run command:
+						<p>Install all node packages currently defined in new site package file.</p>
+
+						<p>Run the command:</p>
 						<pre>
 							<code class="hljs Bash hljs">npm install</code>
 						</pre>
 					</section>
 					<section>
-						Run command:
+						<p>Install mongoose Node package to connect to running MongoDB instance.</p>
+
+						<p>Run the command:</p>
 						<pre>
 							<code class="hljs Bash hljs">npm install --save mongoose</code>
 						</pre>
@@ -128,13 +136,13 @@
 						Make a new directory for your models
 					</section>
 					<section>
-						Open up file ./app.js, and add this line to the top:
+						Open up file ./app.js, and add this line to the top to add mongoose instance:
 						<pre>
 							<code class="hljs Javascript hljs">var mongoose = require("mongoose");</code>
 						</pre>
 					</section>
 					<section>
-						Connect to your local mongoose server
+						Add the following code to have mongoose connect to your local MongoDB server:
 						<pre>
 							<code class="hljs Javascript hljs">
 require("./models/Posts");
@@ -145,7 +153,7 @@ mongoose.connect('mongodb://localhost/peanutgallery');</code>
 						Create a new file ./models/Posts.js
 					</section>
 					<section>
-						Add code to create mongodb schema
+						Add code to Posts.js to create MongoDB schema
 						<pre>
 							<code class="hljs Javascript hljs">var mongoose = require("mongoose");
 var PostSchema = new mongoose.Schema({
@@ -157,10 +165,10 @@ mongoose.model("Post", PostSchema);</code>
 						</pre>
 					</section>
 					<section>
-						Open up the ./routes/index.js
+						Open up ./routes/index.js
 					</section>
 					<section>
-						Add mongoose and post to the route file
+						Add mongoose and Post to the route file
 						<pre>
 							<code class="hljs Javascript hljs">var mongoose = require("mongoose");
 var Post = mongoose.model("Post");</code>
@@ -286,7 +294,7 @@ app.controller("mainController", [
 						</pre>
 					</section>
 					<section>
-						Add ability to retrieve posts
+						Add ability to retrieve posts in controller (in pgapp.js)
 						<pre>
 							<code class="hljs Javascript hljs">$scope.posts = [];
 $scope.newPost = "";
@@ -303,7 +311,7 @@ $scope.getAllPosts = function() {
 						</pre>
 					</section>
 					<section>
-						Add ability to create posts
+						Add ability to create posts in controller (in pgapp.js)
 						<pre>
 							<code class="hljs Javascript hljs">$scope.createNewPost = function() {
   var tempPost = {
@@ -323,7 +331,7 @@ $scope.init();</code>
 						</pre>
 					</section>
 					<section>
-						Display and create posts on index.ejs
+						Display and create posts in index.ejs
 						<pre>
 							<code class="hljs Javascript hljs">&lt;div class=&quot;title&quot;&gt;
   &lt;h1&gt;The Peanut Gallery&lt;/h1&gt;
