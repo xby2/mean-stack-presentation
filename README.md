@@ -1,4 +1,4 @@
-### Mean Stack Presentation
+# Mean Stack Presentation
 
 Presentation for MEAN Stack for Michigan Hackers.
 
@@ -21,8 +21,7 @@ http://nodejs.org/download
 
 I used https://nodejs.org/dist/v4.2.2/node-v4.2.2-x64.msi
 
-# To Test
-
+To Test
 ```
 $ node -v
 //Expected v#.#.#
@@ -34,8 +33,7 @@ https://www.mongodb.org/downloads
 
 Install at C:\mongodb
 
-# To Test
-
+To Test
 ```
 $ C:\mongodb\Server\3.0\bin\mongod.exe -v
 //Expected
@@ -52,8 +50,7 @@ Add to path variable
 set PATH=%PATH%;C:\my_python_lib
 ```
 
-# To Test
-
+To Test
 ```
 $ python -v
 //Expected
@@ -70,7 +67,7 @@ $ cd mean-stack-presentation/example-site/peanut-gallery
 $ npm install
 ```
 
-### Start Mongo
+# Start Mongo
 
 Create the default DB directory (if it does not exist)
 ```
@@ -97,7 +94,7 @@ $ I NETWORK [initandlisten] waiting for connections on port 27017
 
 [Read more](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows)
 
-### Start Application
+# Start Application
 
 Navigate to peanut-gallery folder
 ```
