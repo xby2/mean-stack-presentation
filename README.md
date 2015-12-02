@@ -3,6 +3,8 @@ Presentation for MEAN Stack for Michigan Hackers.
 
 ## Install
 
+- Install [Python](https://www.python.org/downloads/release/python-2710/)
+
 - Install [Node.js](https://nodejs.org/en/download/)
 
 - Install [MongoDB](https://www.mongodb.org/downloads#production)
