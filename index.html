@@ -14,14 +14,14 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+		<link rel="stylesheet" href="presentation/css/reveal.css">
+		<link rel="stylesheet" href="presentation/css/theme/white.css" id="theme">
 
 		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="presentation/lib/css/zenburn.css">
 
 		<!-- Custom CSS -->
-		<link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" href="presentation/css/index.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -80,12 +80,6 @@
 						- easier<br/>
 						- Development setup and deployment is the same<br/>
 						- Support integrating components<br/>
-					</aside>
-				</section>
-				<section>
-					<h2>How it fits together</h2>
-					<img id="meanArch" class="full-screen blank-background" src="img/meanArchitecture2.png">
-					<aside class="notes">
 					</aside>
 				</section>
 
@@ -395,8 +389,8 @@ $scope.init();</code>
 
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+		<script src="presentation/lib/js/head.min.js"></script>
+		<script src="presentation/js/reveal.js"></script>
 
 		<script>
 
@@ -412,12 +406,12 @@ $scope.init();</code>
 
 				// Optional reveal.js plugins
 				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: 'presentation/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'presentation/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'presentation/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'presentation/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'presentation/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'presentation/plugin/notes/notes.js', async: true }
 				]
 			});
 
