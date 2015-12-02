@@ -160,14 +160,6 @@ mongoose.model("Post", PostSchema);</code>
 						Open up the ./routes/index.js
 					</section>
 					<section>
-						Create GET route for index:
-						<pre>
-							<code class="hljs Javascript hljs">router.get("/", function(req, res, next) {
-  res.render("index");
-});</code>
-						</pre>
-					</section>
-					<section>
 						Add mongoose and post to the route file
 						<pre>
 							<code class="hljs Javascript hljs">var mongoose = require("mongoose");
@@ -226,8 +218,7 @@ var Post = mongoose.model("Post");</code>
 					</section>
 					<section>
 						<div>Create new files:</div>
-						<div>./public/scripts/pgapp.js</div>
-						<div>./view/index.ejs</div>
+						<div>./public/javascripts/pgapp.js</div>
 					</section>
 					<section>
 						Add head and body to index.ejs
@@ -236,8 +227,8 @@ var Post = mongoose.model("Post");</code>
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;say something&lt;/title&gt;
-    &lt;script src=&quot;/scripts/angular.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;/scripts/pgapp.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/javascripts/angular.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/javascripts/pgapp.js&quot;&gt;&lt;/script&gt;
   &lt;/head&gt;
   &lt;body&gt;
   &lt;/body&gt;
