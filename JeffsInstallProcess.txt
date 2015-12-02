@@ -15,27 +15,59 @@ https://nodejs.org/dist/v4.2.2/node-v4.2.2-x64.msi
 
 # In Git Bash
 
-> cd <path to project>
-> node init
+```
+$ cd <path to project>
+$ node init
+```
 
-## [Install MongoDB](http://www.mongodb.org)
+## Install [MongoDB](http://www.mongodb.org)
 
-https://www.mongodb.org/dr/fastdl.mongodb.org/win32/mongodb-win32-i386-3.0.7-signed.msi/download
+https://www.mongodb.org/downloads
 
 ## Install Python 2.7
+
 https://www.python.org/download/releases/2.7/
+
 Add to path variable
+
 *make sure to press all OKs and restart Git Bash
 
-## Install Mean
+## Mean Prerequisite packages
+
+```
+//Mean currently works with either grunt or gulp..
+$ npm install -g gulp
+// and bower
+$ npm install -g bower 
+```
+
+## Install [Mean](http://mean.io)
 
 Open bash with "Run as Admin"
 
-> cd <path to project>
-> npm install -g mean-cli 
-> mean init yourNewApp
-> ... Follow prompt ...
+```
+$ cd <path to project>
+$ npm install -g mean-cli 
+$ mean init yourNewApp
+$ ... Follow prompt ...
+```
+
+[Troubleshooting](https://github.com/linnovate/mean#troubleshooting)
 
 ## Start Mongod
 
-https://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/
+C:\data\db is where MongoDB data is stored by default
+
+```
+$ mkdir -p C:/data/db
+$ cd <path to project>
+$ mongod.exe
+```
+
+OR
+
+```
+$ mongod.exe --dbpath "<path to directory>"
+```
+
+[Read more](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows)
