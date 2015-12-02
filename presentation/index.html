@@ -157,7 +157,7 @@ mongoose.model("Post", PostSchema);</code>
 						</pre>
 					</section>
 					<section>
-						Open up the ./route/index.js
+						Open up the ./routes/index.js
 					</section>
 					<section>
 						Create GET route for index:
@@ -165,6 +165,13 @@ mongoose.model("Post", PostSchema);</code>
 							<code class="hljs Javascript hljs">router.get("/", function(req, res, next) {
   res.render("index");
 });</code>
+						</pre>
+					</section>
+					<section>
+						Add mongoose and post to the route file
+						<pre>
+							<code class="hljs Javascript hljs">var mongoose = require("mongoose");
+var Post = mongoose.model("Post");</code>
 						</pre>
 					</section>
 					<section>
