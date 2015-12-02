@@ -80,7 +80,7 @@ $ C:\mongodb\Server\3.0\bin\mongod.exe
 ```
 
 Setup Mongo Database
-'''
+```
 //Client side terminal for modifying mongodb
 $ C:\mongodb\Server\3.0\bin\mongo.exe
 //Create database peanutgallery
