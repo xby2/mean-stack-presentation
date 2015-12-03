@@ -2,7 +2,11 @@
 
 Presentation for MEAN Stack for Michigan Hackers.
 
-### Install Process
+# [Presentation](http://xby2.github.io/mean-stack-presentation)
+
+How to setup a MEAN Stack Application from scratch
+
+# Install Process
 
 NOTE: This is for Windows
 
@@ -104,3 +108,9 @@ $ npm start
 ```
 
 View application at [localhost:3000](http://localhost:3000)
+
+# Contributors
+
+[Mohammed Hussain](https://github.com/mhhussain)
+[Dave Farinelli](http://github.com/davefarinelli)
+[Jeff Sallans](https://github.com/JeffSallans)
